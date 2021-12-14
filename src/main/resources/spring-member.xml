@@ -28,11 +28,11 @@
 		<property name="idleConnectionTestPeriod" value="300"/>
 	</bean>
 
-	<bean id="memberDao" class="member.MemberDao">
+	<bean id="memberDao" class="member.dao.MemberDao">
 		<constructor-arg ref="dataSource"/>
 	</bean>
-	<bean id="memberRegSvc" class="member.MemberRegisterService"/>
-	<bean id="changePwdSvc" class="member.ChangePasswordService"/>
+	<bean id="memberRegSvc" class="member.service.MemberRegisterService"/>
+	<bean id="changePwdSvc" class="member.service.ChangePasswordService"/>
 	
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource"/>
