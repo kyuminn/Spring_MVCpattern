@@ -37,7 +37,7 @@ public class HelloController {
 	
 	
 	
-	// 경로를 예쁘게 만드려면
+	// 경로를 보기좋게 만드려면
 	// add2/10/20 이런식으로 요청할 수 있음
 	@RequestMapping("/add2/{n1}/{n2}")
 	public String add(@PathVariable("n1")int n1,@PathVariable("n2")int n2, Model model) { 
