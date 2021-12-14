@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  <%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,28 +9,28 @@
 </head>
 <body>
 	<h2>회원 정보 입력</h2>
-	<form action="step3" method="post">
+	<form:form action="step3" commandName="formData">
 		<table>
 			<tr>
 				<td>이메일</td>
-				<td><input type="text" name="email" id="email"></td>
+				<td><form:input path="email"/></td>
 			</tr>
 			<tr>
 				<td>이름</td>
-				<td><input type="text" name="name" id="name"></td>
+				<td><form:input path="name"/></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="password" id="password"></td>
+				<td><form:password path="password"/></td>
 			</tr>
 			<tr>
 				<td>비밀번호 확인</td>
-				<td><input type="password" name="confirmPwd" id="confirmPwd"></td>
+				<td><form:password path="confirmPassword"/></td>
 			</tr>
 			<tr>
 				<td colspan="2"><input type="submit" value="가입완료"></td>
 			</tr>
 		</table>
-	</form>
+	</form:form>
 </body>
 </html>

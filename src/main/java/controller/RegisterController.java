@@ -2,6 +2,7 @@ package controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,10 +35,11 @@ public class RegisterController {
 	
 // request Paramater를 가져오는 방식 2
 	@RequestMapping(value="register/step2",method=RequestMethod.POST)
-	public String handleStep2(@RequestParam(value="agree", defaultValue="false")Boolean agree) {
+	public String handleStep2(@RequestParam(value="agree", defaultValue="false")Boolean agree,Model model) {
 		if (!agree) {
 			return "register/step1";
 		}
+		model.addAttribute("formData", new RegisterRequest());
 		return "register/step2";
 	}
 	
