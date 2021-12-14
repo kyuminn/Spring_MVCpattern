@@ -11,10 +11,14 @@
 	<!--  java 코드에 선언한 스프링 어노테이션을 읽어들일 수 있게 하는 태그! -->
 	<mvc:annotation-driven/>
 	
+	<mvc:view-controller path="/main" view-name="main"/>
+	
 	<!-- @controller 들이 반환하는 String 타입의 문자열을 읽어서, views 안의 jsp 파일로 응답할 수 있게 해주는 태그 -->
 	<mvc:view-resolvers>
 		<mvc:jsp prefix="/WEB-INF/views/" suffix=".jsp"/>
 	</mvc:view-resolvers>
+	
+	
 
 	<mvc:default-servlet-handler/>
 </beans>
