@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
   
+  <!-- 
+  	웹 서버(톰캣)이 서비스할 때 web.xml을 먼저 읽음 
+  	등록된 frontController가 모든 요청을 받음 (/ 경로 지정)
+  	frontController가 요청을 읽어서 해당 요청을 처리할 Controller로 넘겨줌 (@Controller)
+  	해당 컨트롤러에서 @RequestMapping에 따라 특정 메서드 동작(필요시 Model을 통한 비즈니스 로직 동작)
+  	그 결과 String 타입 jsp 이름 반환
+  	
+   -->
   
   <display-name>springMVC</display-name>
 	<servlet>
@@ -21,6 +29,7 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
+	<!-- 인코딩 설정 -->
 	<filter>
 		<filter-name>encodingFilter</filter-name>
 		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
