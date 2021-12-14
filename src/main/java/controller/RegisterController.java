@@ -12,7 +12,7 @@ import member.exception.AlreadyExistingMemberException;
 import member.request.RegisterRequest;
 import member.service.MemberRegisterService;
 
-// pull
+// pull !!!!
 @Controller
 public class RegisterController {
 	
