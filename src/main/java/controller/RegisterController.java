@@ -3,6 +3,7 @@ package controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -69,11 +70,16 @@ public class RegisterController {
 	// 만약 커맨드 객체의 이름을 따로 지정하고 싶으면 ModelAttribute 설정을 하면 됨!
 	// 설정 후에는 formData.param이름으로 사용하면 됨
 	@RequestMapping(value="register/step3", method=RequestMethod.POST)
-	public String handleStep3(@ModelAttribute("formData")RegisterRequest regReq) {
+	public String handleStep3(@ModelAttribute("formData")RegisterRequest regReq,Errors errors) { // 반드시 커맨드 객체 뒤에 errors 쓰기! 순서주의!
+		new RegisterRequestValidator().validate(regReq, errors);
+		if(errors.hasErrors()) { // valiedate()실행 중 한번이라도 rejectValue()가 실행되었을 경우 true 반환
+			return "register/step2";
+		}
 		try {
 			regSvc.regist(regReq);
 			return "register/step3";
 		}catch(AlreadyExistingMemberException e) {
+			errors.rejectValue("email", "duplicate");
 			return "register/step2";
 		}
 	}
