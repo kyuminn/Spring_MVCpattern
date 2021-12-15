@@ -25,6 +25,8 @@
 				<form:errors path="password"/>
 			</label>
 		</p>
+		<form:errors/> <!-- 글로벌 에러 코드  -->
+		<br>
 		<input type="submit" value="<spring:message code="login.btn"/>">
 	</form:form>
 </body>

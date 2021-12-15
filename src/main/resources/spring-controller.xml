@@ -11,4 +11,5 @@
 <bean class="controller.RegisterController"/>
 <bean class="survey.SurveyController"/>
 <bean class="controller.LoginController"/>
+<bean class="controller.LogoutController"/>
 </beans>
