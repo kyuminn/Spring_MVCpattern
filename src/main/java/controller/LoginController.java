@@ -1,5 +1,6 @@
 package controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -14,6 +15,7 @@ import member.vo.AuthInfo;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
+	@Autowired
 	private AuthService authService;
 	
 	public LoginController(AuthService authService) {
@@ -37,7 +39,7 @@ public class LoginController {
 			AuthInfo authInfo = authService.authenticate(loginCommand.getEmail(), loginCommand.getPassword());
 			return "login/loginSuccess";
 		}catch(IdPasswordNotMatchingException e) {
-			errors.reject("IdPasswordNotMatching"); // 글로벌 에러코드! 특정 파라미터 값이 아닌 
+			errors.reject("IdPasswordNotMatching"); // 글로벌 에러코드! 특정 파라미터 값이 아닌 객체 전체 검증 (아이디와 패스워드 중 어떤것이 잘못되었는지 사용자는 알 수 없음) 
 			return "loign/loginForm";
 		}
 	}

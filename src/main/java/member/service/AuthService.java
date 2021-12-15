@@ -1,11 +1,14 @@
 package member.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 import member.dao.MemberDao;
 import member.exception.IdPasswordNotMatchingException;
 import member.vo.AuthInfo;
 import member.vo.MemberVo;
 
 public class AuthService {
+	@Autowired
 	private MemberDao memberDao;
 	
 	
@@ -19,6 +22,7 @@ public class AuthService {
 	
 	public AuthInfo authenticate(String email, String password) {
 		MemberVo vo = memberDao.selectByEmail(email);
+		// ID와 Password에서 같은 Exception을 발생시킴 => 나중에 글로벌 에러코드로 처리
 		if (vo == null) {
 			throw new IdPasswordNotMatchingException();
 		}

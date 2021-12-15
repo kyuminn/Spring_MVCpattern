@@ -10,4 +10,5 @@
 <!-- 이 객체는 다른곳에서 참조할 일이 없기대문에 id 부분은 삭제해도 된다! -->
 <bean class="controller.RegisterController"/>
 <bean class="survey.SurveyController"/>
+<bean class="controller.LoginController"/>
 </beans>
