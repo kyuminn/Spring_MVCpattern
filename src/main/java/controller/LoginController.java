@@ -12,6 +12,7 @@ import member.command.LoginCommand;
 import member.exception.IdPasswordNotMatchingException;
 import member.service.AuthService;
 import member.vo.AuthInfo;
+import validator.LoginCommandValidator;
 
 @Controller
 @RequestMapping("/login")

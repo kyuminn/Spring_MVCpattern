@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import member.command.RegisterRequest;
 import member.exception.AlreadyExistingMemberException;
 import member.service.MemberRegisterService;
+import validator.RegisterRequestValidator;
 
 // pull !!!! nnnn!!!!
 @Controller
@@ -72,7 +73,7 @@ public class RegisterController {
 	@RequestMapping(value="register/step3", method=RequestMethod.POST)
 	public String handleStep3(@ModelAttribute("formData")RegisterRequest regReq,Errors errors) { // 반드시 커맨드 객체 뒤에 errors 쓰기! 순서주의!
 		new RegisterRequestValidator().validate(regReq, errors);
-		if(errors.hasErrors()) { // valiedate()실행 중 한번이라도 rejectValue()가 실행되었을 경우 true 반환
+		if(errors.hasErrors()) { // validate()실행 중 한번이라도 rejectValue()가 실행되었을 경우 true 반환
 			return "register/step2";
 		}
 		try {
