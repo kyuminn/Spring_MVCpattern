@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import member.command.RegisterRequest;
 import member.exception.AlreadyExistingMemberException;
-import member.request.RegisterRequest;
 import member.service.MemberRegisterService;
 
 // pull !!!! nnnn!!!!

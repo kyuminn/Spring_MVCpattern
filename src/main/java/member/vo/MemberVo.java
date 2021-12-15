@@ -30,4 +30,8 @@ public class MemberVo {
 		this.name = name;
 		this.regdate = regdate;
 	}
+	
+	public boolean matchPassword(String password) {
+		return this.password.equals(password);
+	}
 }

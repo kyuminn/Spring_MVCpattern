@@ -4,9 +4,9 @@ import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import member.command.RegisterRequest;
 import member.dao.MemberDao;
 import member.exception.AlreadyExistingMemberException;
-import member.request.RegisterRequest;
 import member.vo.MemberVo;
 
 public class MemberRegisterService {
