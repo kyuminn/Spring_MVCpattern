@@ -2,6 +2,7 @@ package controller;
 
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -18,6 +19,8 @@ import validator.ChangePwdCommandValidator;
 @RequestMapping("/edit/changePassword")
 public class ChangePwdController {
 	
+	//changePwdSvc bean 도 등록해줘야 함 (spring-member.xml에 있음)
+	@Autowired
 	private ChangePasswordService changePwdSvc;
 	
 	public ChangePwdController(ChangePasswordService changePwdSvc) {
