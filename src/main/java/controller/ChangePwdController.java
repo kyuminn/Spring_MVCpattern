@@ -28,7 +28,12 @@ public class ChangePwdController {
 	}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String form(@ModelAttribute("command")ChangePwdCommand pwdCmd) {
+	public String form(@ModelAttribute("command")ChangePwdCommand pwdCmd/*,HttpSession session*/) {
+//		AuthInfo authInfo = (AuthInfo)session.getAttribute("authInfo");
+//		if (authInfo==null) {
+//			return "redirect:/login";
+//		}
+		// 주석처리된 부분은 핸들러인터셉터로 구현할 예정
 		return "edit/changePwdForm";
 	}
 	

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><spring:message code="change.password"/></title>
+<title><spring:message code="password.change"/></title>
 </head>
 <body>
 	<p>

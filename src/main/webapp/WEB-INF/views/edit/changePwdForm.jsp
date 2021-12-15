@@ -20,7 +20,7 @@
 		
 		<p>
 			<label>
-				<spring:message code="currentPassword"/>
+				<spring:message code="newPassword"/>
 				<form:password path="newPassword"/>
 				<form:errors path="newPassword"/>
 			</label>
