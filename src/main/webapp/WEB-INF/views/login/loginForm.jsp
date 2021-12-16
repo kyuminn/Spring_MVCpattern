@@ -14,7 +14,7 @@
 			<label>
 				<spring:message code="email"/>:
 				<form:input path="email"/>
-				<form:errors path="email"/>
+				<form:errors path="email"/> <!-- errors 객체에 email 항목에 대한 에러가 있으면 에러 메세지가 표시되는 부분 -->
 			</label>
 		</p>
 		
@@ -25,7 +25,13 @@
 				<form:errors path="password"/>
 			</label>
 		</p>
-		<form:errors/> <!-- 글로벌 에러 코드  -->
+		<p>
+			<label>
+				<spring:message code="rememberEmail"/>
+				<form:checkbox path="rememberEmail"/>
+			</label>
+		</p>
+		<form:errors/> <!-- 글로벌 에러 코드가 표시되는 부분 -->
 		<br>
 		<input type="submit" value="<spring:message code="login.btn"/>">
 	</form:form>
