@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+  <mapper namespace="memberDao">
+  	<select id="list" resultType="vo">
+  		select * from member order by id
+  	</select>
+  	<select id="selectByEmail" parameterType="String" resultType="vo">
+  		select * from member where email=#{email}
+  	</select>
+  	<insert id="insert" parameterType="vo">
+  		insert into member (id,email,password,name,regdate) values 
+  		(member_seq.nextval,#{email},#{password},#{name},#{regdate})
+  		<selectKey keyProperty="id" resultType="Long">
+  			select nvl(max(id),0) from member
+  		</selectKey>
+  	</insert>
+  	<update id="update" parameterType="vo">
+  		update member set name=#{name},password=#{password} where email=#{email}
+  	</update>
+  	<delete id="delete" parameterType="vo">
+  		delete from member where email=#{email} and password=#{password}
+  	</delete>
+  	<delete id="deleteAll">
+  		delete from member
+  	</delete>
+  	<select id="count" resultType="Integer">
+  		select count(*) from member
+  	</select>
+  	<select id="selectByRegdate" parameterType="HashMap" resultType="vo">
+  		select * from member where regdate between #{from} and #{to} order by regdate desc
+  	</select>
+  	<select id="selectById" parameterType="Long" resultType="vo">
+  		select * from member where id=#{id}
+  	</select>
+  </mapper>
