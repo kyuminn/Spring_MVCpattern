@@ -6,9 +6,9 @@
 		<init-param>
 			<param-name>contextConfigLocation</param-name> <!--  꼭 이 이름 써야함 -->
 			<param-value> <!-- 서블릿 초기화 할때 설정파일을 파라미터로 넘겨줌 -->
-				classpath:spring-mvc.xml
-				classpath:spring-controller.xml
-				classpath:spring-member.xml
+				classpath:config/spring-mvc.xml
+				classpath:config/spring-controller.xml
+				classpath:config/spring-member.xml
 			</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup> <!--  서버가 시작되면 바로 이 서블릿 생성 -->
