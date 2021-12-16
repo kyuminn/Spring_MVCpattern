@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import member.command.ListCommand;
 import member.dao.MemberDao;
 import member.vo.MemberVo;
-
+//hey
 @Controller
 public class ListController {
 	@Autowired
