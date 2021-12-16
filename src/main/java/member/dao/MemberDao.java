@@ -2,17 +2,20 @@ package member.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 
-import org.springframework.jdbc.core.PreparedStatementCreator;
 import member.rowMapper.MemberRowMapper;
 import member.vo.MemberVo;
 
@@ -97,6 +100,29 @@ public class MemberDao {
 		}, keyHolder);
 		Number keyValue = keyHolder.getKey();
 		vo.setId(keyValue.longValue());
+	}
+	
+	// 날짜를 이용한 전체 멤버 반환
+	public List<MemberVo> selectByRegdate(Date from, Date to){
+//		String sql="select * from member where regdate between ? and ? order by regdate desc";
+//		List<MemberVo> ls = jdbcTemplate.query(sql, new MemberRowMapper(), from,to);
+//		return ls;
+		
+		String sql="select * from member where regdate between ? and ? order by regdate desc";
+		List<MemberVo> ls = jdbcTemplate.query(sql, new RowMapper<MemberVo>(){
+			@Override
+			public MemberVo mapRow(ResultSet rs, int rowNum) throws SQLException {
+				MemberVo vo = new MemberVo();
+				vo.setEmail(rs.getString("email"));
+				vo.setPassword(rs.getString("password"));
+				vo.setName(rs.getString("name"));
+				vo.setRegdate(rs.getTimestamp("regdate"));
+				vo.setId(rs.getLong("id"));
+				return vo;
+			}
+			
+		},from, to);
+		return ls;
 	}
 	
 }

@@ -13,6 +13,6 @@
 <bean class="controller.LoginController"/>
 <bean class="controller.LogoutController"/>
 <bean class="controller.ChangePwdController"/>
-
+<bean class="controller.ListController"/>
 
 </beans>
