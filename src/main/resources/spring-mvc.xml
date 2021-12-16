@@ -28,6 +28,13 @@
 		<property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
 	
-
 	<mvc:default-servlet-handler/>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>
+			<mvc:mapping path="/edit/**"/> <!-- edit 하위 경로 모두 -->
+			<mvc:exclude-mapping path="/edit/help/**"/> <!-- 제외하고 싶은 경로 있을 때 추가하는 방법 -->
+			<bean class="interceptor.AuthCheckInterceptor"/>
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans>
