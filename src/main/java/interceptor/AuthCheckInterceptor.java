@@ -13,6 +13,9 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 // 필요한 메서드만 override 해서 사용할 수 있다 (인터페이스를 바로 구현할 경우 모든 메서드를 다 오버라이딩해야함)
 public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 
+	// 로그인 하지 않은 상태에서 비밀번호 변경 폼을 요청하면 세션이 없으므로 changePwdController 실행 전에
+	// 인터셉터가 동작해서 로그인 페이지로 리다이렉트 
+	
 	// controller 실행 전에 수행되는 메서드
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
