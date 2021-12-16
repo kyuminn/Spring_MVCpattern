@@ -14,9 +14,11 @@
 		<p>
 			<label>
 				from:<form:input path="from"/>
+				<form:errors path="from"/>
 			</label>
 			<label>
 				to:<form:input path="to"/>
+				<form:errors path="to"/>
 			</label>
 			<input type="submit" value="조회">
 		</p>
