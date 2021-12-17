@@ -13,7 +13,7 @@
 	
 	<context:annotation-config/>
 	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
+	<!-- dataSource=DBCP 객체 -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"/>
@@ -36,6 +36,8 @@
 	
 	<bean id="authService" class="member.service.AuthService"/>
 	
+	<!-- sqlSessionFactory=Mybatis 객체
+	DB 연결 정보갸 있는 DataSource 객체를 사용하여 MyBatis와 연결을 관리하는 클래스를 bean으로 등록하기 (factory, template) -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="configLocation" value="classpath:config/mybatis-config.xml"/>

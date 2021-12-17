@@ -17,6 +17,7 @@ import member.service.AuthService;
 import member.vo.AuthInfo;
 import validator.LoginCommandValidator;
 
+// xml가서 Controller bean 등록 해주기
 @Controller
 @RequestMapping("/login")
 public class LoginController {
@@ -28,14 +29,14 @@ public class LoginController {
 	}
 	
 // 보통 form을 보여주는 건 get 요청으로, form 파라미터를 처리하는 것은 post 방식으로 받는다
-// @CookieValue에서 value 속성은 쿠키의 이름 , required 속성은 필수 여뷰 (true가 default)
+// @CookieValue에서 value 속성은 쿠키의 이름 , required 속성은 필수 여부 (true가 default)
 	@RequestMapping(method=RequestMethod.GET)
 	public String Form(LoginCommand loginCommand,@CookieValue(value="REMEMBER",required=false)Cookie cookie) {
 		if (cookie!=null) {
 			loginCommand.setEmail(cookie.getValue());
 			loginCommand.setRememberEmail(true);
 		}
-		return "login/loginForm";
+		return "login/loginForm"; // /WEB-INF/views/login/loginForm.jsp! 최상위 경로가 webapp (JSP에서의 Webcontent)
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)

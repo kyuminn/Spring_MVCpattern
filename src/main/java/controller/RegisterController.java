@@ -14,7 +14,6 @@ import member.exception.AlreadyExistingMemberException;
 import member.service.MemberRegisterService;
 import validator.RegisterRequestValidator;
 
-// pull !!!! nnnn!!!!
 @Controller
 public class RegisterController {
 	

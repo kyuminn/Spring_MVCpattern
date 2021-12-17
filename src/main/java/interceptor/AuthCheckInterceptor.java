@@ -24,7 +24,7 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 		if (session !=null) {
 			Object authInfo  = session.getAttribute("authInfo");
 			if (authInfo !=null) {
-				return true;
+				return true; // true 반환되면 Controller 동작
 			}
 		}
 		// session안에 AuthInfo 가 없으면 로그인 페이지로 리다이렉트

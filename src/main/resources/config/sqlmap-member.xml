@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-
+	<!-- result Type은  mybatis-config에서 정의한 alias 이름 -->
   <mapper namespace="memberDao">
   	<select id="list" resultType="vo">
   		select * from member order by id

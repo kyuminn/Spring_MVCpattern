@@ -11,7 +11,8 @@
 	<!--  java 코드에 선언한 스프링 어노테이션을 읽어들일 수 있게 하는 태그! -->
 	<mvc:annotation-driven/>
 	
-	<mvc:view-controller path="/main" view-name="main"/>
+	<!--  특정 처리 없이 바로 view를 보여주고 싶을때 사용하는 태그 -->
+	<mvc:view-controller path="/" view-name="main"/>
 	
 	<!-- @controller 들이 반환하는 String 타입의 문자열을 읽어서, views 안의 jsp 파일로 응답할 수 있게 해주는 태그 -->
 	<mvc:view-resolvers>
@@ -28,11 +29,12 @@
 		<property name="defaultEncoding" value="UTF-8"></property>
 	</bean>
 	
+	<!-- DispatcherServlet이 처리하지 못한 요청을(매칭되는 Controller 가 없는 경우) DefaultServlet에게 넘겨주는 역할을 하는 핸들러 -->
 	<mvc:default-servlet-handler/>
 	
 	<mvc:interceptors>
 		<mvc:interceptor>
-			<mvc:mapping path="/edit/**"/> <!-- edit 하위 경로 모두 -->
+			<mvc:mapping path="/edit/**"/> <!-- edit 하위 경로로 요청했을때 (controller 수행 전 , 수행 후 뷰 보여주기 전, 뷰 보여준 후 )모두 -->
 			<mvc:exclude-mapping path="/edit/help/**"/> <!-- 제외하고 싶은 경로 있을 때 추가하는 방법 -->
 			<bean class="interceptor.AuthCheckInterceptor"/>
 		</mvc:interceptor>

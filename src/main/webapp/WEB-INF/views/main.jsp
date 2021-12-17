@@ -9,6 +9,7 @@
 <title>메인 페이지</title>
 </head>
 <body>
+	<!-- session에 저장된 authInfo 있는지 판별 후 보여질 내용을 다르게 -->
 	<c:if test="${empty authInfo}">
 		<h2>환영합니다</h2>
 		<!-- c tag는 자동으로 앞에 pageContext.request.contextPath()를 붙여준다!! -->
