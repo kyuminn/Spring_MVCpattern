@@ -15,10 +15,6 @@
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
-		<!--  
-		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
-		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:xe"/>
-		-->
 		<property name="driverClass" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
 		<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:xe"/>
 		<property name="user" value="tester3"/>
@@ -27,11 +23,7 @@
 		<property name="maxIdleTime" value="600"/>
 		<property name="idleConnectionTestPeriod" value="300"/>
 	</bean>
-	<!--  
-	<bean id="memberDao" class="member.dao.MemberDao">
-		<constructor-arg ref="dataSource"/>
-	</bean>
-	-->
+	
 	<bean id="memberDao" class="member.dao.MemberDaoImpl">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
