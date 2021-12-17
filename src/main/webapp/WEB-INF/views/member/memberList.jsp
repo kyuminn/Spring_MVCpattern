@@ -14,7 +14,7 @@
 		<p>
 			<label>
 				from:<form:input path="from"/>
-				<form:errors path="from"/>
+				<form:errors path="from"/> <!-- 에러가 있다면 에러코드 표시되는 부분 -->
 			</label>
 			<label>
 				to:<form:input path="to"/>

@@ -25,7 +25,7 @@ public class ListController {
 	@RequestMapping("/member/list")
 	public String list(@ModelAttribute("cmd")ListCommand listCommand,Errors errors, Model model) {
 		if (errors.hasErrors()) { // @DateTimeFormat 으로 지정된 형식에 맞지 않는 예외 발생 시 스프링에서 Errors 에 typeMismatch 에러코드 추가
-			return "member/memberList";
+			return "member/memberList"; // memberList.jsp에서 error 코드 보여줌
 		}
 		if (listCommand.getFrom()!=null && listCommand.getTo()!=null) {
 			List<MemberVo> members = memberDao.selectByRegdate(listCommand.getFrom(), listCommand.getTo());
