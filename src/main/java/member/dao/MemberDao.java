@@ -10,21 +10,25 @@ import java.util.List;
 
 import javax.sql.DataSource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
 
 import member.rowMapper.MemberRowMapper;
 import member.vo.MemberVo;
 
+@Repository
 public class MemberDao {
 	
 	//jdbcTemplate 객체 : jsp에서 사용하던 Connection, PreparedStatement, ResultSet 의 역할을 적절히 대신해줌.
 	
 	private JdbcTemplate jdbcTemplate;
 	
+	@Autowired
 	public MemberDao(DataSource ds) {
 		this.jdbcTemplate = new JdbcTemplate(ds);
 	}

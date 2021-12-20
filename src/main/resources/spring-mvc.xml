@@ -45,7 +45,8 @@
 	필요한 dataSource, message는 지우지 말 것
 	이 태그를 사용하면 @Component를 상속하는( @Controller, @Repository, @Service) 어노테이션 붙은 클래스에 대해 자동으로 객체 생성!!
 	단, base-package에 하위에 있는 모든 클래스에 한정
+	이후에 각 클래스에 알맞은 어노테이션 @ 추가해주기!
 	  -->
 	<context:component-scan base-package="controller"></context:component-scan>
-	<context:component-scan base-package="member.service"></context:component-scan>
+	<context:component-scan base-package="member"></context:component-scan>
 </beans>
