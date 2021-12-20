@@ -2,11 +2,14 @@
 
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/mvc
-	http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+	http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
 	
 	<!--  java 코드에 선언한 스프링 어노테이션을 읽어들일 수 있게 하는 태그! -->
 	<mvc:annotation-driven/>
@@ -39,4 +42,13 @@
 			<bean class="interceptor.AuthCheckInterceptor"/>
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
+	<!--xml의 bean 생성 태그를 모두  지우고 (내가 정의한 클래스에 대해서만) 이 태그 추가하기!!
+	필요한 dataSource, message는 지우지 말 것
+	이 태그를 사용하면 @Component를 상속하는( @Controller, @Repository, @Service) 어노테이션 붙은 클래스에 대해 자동으로 객체 생성!!
+	단, base-package에 하위에 있는 모든 클래스에 한정
+	이후에 각 클래스에 알맞은 어노테이션 @ 추가해주기!
+	  -->
+	<context:component-scan base-package="controller"></context:component-scan>
+	<context:component-scan base-package="member"></context:component-scan>
 </beans>

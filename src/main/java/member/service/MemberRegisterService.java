@@ -3,12 +3,13 @@ package member.service;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import member.command.RegisterRequest;
 import member.dao.MemberDao;
 import member.exception.AlreadyExistingMemberException;
 import member.vo.MemberVo;
-
+@Service
 public class MemberRegisterService {
 	@Autowired
 	private MemberDao memberDao;

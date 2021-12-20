@@ -24,6 +24,10 @@
 		<property name="idleConnectionTestPeriod" value="300"/>
 	</bean>
 	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!--  
 	<bean id="memberDao" class="member.dao.MemberDaoImpl">
 		<constructor-arg ref="sqlSessionTemplate"/>
 	</bean>
@@ -35,6 +39,8 @@
 	</bean>
 	
 	<bean id="authService" class="member.service.AuthService"/>
+	-->
+	
 	
 	<!-- sqlSessionFactory=Mybatis 객체
 	DB 연결 정보갸 있는 DataSource 객체를 사용하여 MyBatis와 연결을 관리하는 클래스를 bean으로 등록하기 (factory, template) -->

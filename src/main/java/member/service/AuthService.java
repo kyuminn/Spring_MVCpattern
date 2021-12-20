@@ -1,12 +1,14 @@
 package member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import member.dao.MemberDao;
 import member.exception.IdPasswordNotMatchingException;
 import member.vo.AuthInfo;
 import member.vo.MemberVo;
 
+@Service
 public class AuthService {
 	@Autowired
 	private MemberDao memberDao;

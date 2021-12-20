@@ -1,20 +1,20 @@
 package member.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import member.vo.MemberVo;
-
+@Repository
 public class MemberDaoImpl implements MemberDao {
 	
 	//Mybatis로 DB 연동할 경우 sqlSessionTemplate 객체 이용
 	
+	@Autowired
 	private SqlSessionTemplate sqlSessionTemplate;
 	
 	public MemberDaoImpl(SqlSessionTemplate sqlSessionTemplate) {

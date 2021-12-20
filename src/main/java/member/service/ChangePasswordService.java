@@ -1,12 +1,14 @@
 package member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import member.dao.MemberDao;
 import member.exception.MemberNotFoundException;
 import member.vo.MemberVo;
 
+@Service
 public class ChangePasswordService {
 	@Autowired
 	private MemberDao memberDao;
