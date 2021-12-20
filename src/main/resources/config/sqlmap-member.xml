@@ -3,6 +3,15 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<!-- result Type은  mybatis-config에서 정의한 alias 이름 -->
 	<!-- id = 특정 쿼리문을 식별하기 위한 값 -->
+	<!-- namespace 속성: 쿼리들 묶음 이름. 접근할때 네임스페이스명+쿼리ID명으로 접근 
+		ex) memberDao.selecyByEmail
+		지금은 mapper xml이 하나밖에 없으니까 dao 에서 바로 접근할 수 있지만
+		public MemberVo selectByEmail(String email) {
+		return sqlSessionTemplate.selectOne("selectByEmail",email);
+	}
+	 여러개의 매퍼가 있는 경우
+		sqlSessionTemplate.selectOne("memberDao.selectByEmail",email); 로 네임스페이스명을 분명히해줘야 함!!
+	 -->
   <mapper namespace="memberDao">
   	<select id="list" resultType="vo">
   		select * from member order by id
