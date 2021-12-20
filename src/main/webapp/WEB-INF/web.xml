@@ -10,6 +10,12 @@
   	
    -->
   
+  <!-- Spring MVC 에서 제공하는 FrontController class = DispatcherServlet
+  	이 FC가 URL 요청 분석 후 , @Controller 가 붙어있는 클래스보고 특정 요청을 처리하도록 동작시킴
+  	Controller에 선언된 매개변수가 있다면 스프링이 알아서 생성해서 담아줌!
+  	ex) jsp 파일까지 유지되는 값이 필요하다면 Model에 담는다
+  	return하는 String 은 view-resolver를 통해서 , 웹 서버안의 특정 파일을 서비스
+   -->
   <display-name>springMVC</display-name>
 	<servlet>
 		<servlet-name>dispatcherServlet</servlet-name> <!-- front-controller -->
