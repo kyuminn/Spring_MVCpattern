@@ -10,7 +10,6 @@ import member.dao.MemberDao;
 import member.exception.AlreadyExistingMemberException;
 import member.vo.MemberVo;
 
-@Service
 public class MemberRegisterService {
 	@Autowired
 	private MemberDao memberDao;

@@ -17,7 +17,7 @@ import member.service.AuthService;
 import member.vo.AuthInfo;
 import validator.LoginCommandValidator;
 
-@Controller
+
 @RequestMapping("/login")
 public class LoginController {
 	@Autowired

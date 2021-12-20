@@ -12,7 +12,7 @@ import member.dao.MemberDao;
 import member.exception.MemberNotFoundException;
 import member.vo.MemberVo;
 
-@Controller
+
 public class MemberDetailController {
 	@Autowired
 	private MemberDao memberDao;

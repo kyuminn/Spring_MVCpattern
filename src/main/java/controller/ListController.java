@@ -13,7 +13,7 @@ import member.command.ListCommand;
 import member.dao.MemberDao;
 import member.vo.MemberVo;
 
-@Controller
+
 public class ListController {
 	@Autowired
 	private MemberDao memberDao;

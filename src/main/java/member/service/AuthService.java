@@ -8,7 +8,7 @@ import member.exception.IdPasswordNotMatchingException;
 import member.vo.AuthInfo;
 import member.vo.MemberVo;
 
-@Service
+
 public class AuthService {
 	@Autowired
 	private MemberDao memberDao;

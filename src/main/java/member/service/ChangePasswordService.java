@@ -8,7 +8,6 @@ import member.dao.MemberDao;
 import member.exception.MemberNotFoundException;
 import member.vo.MemberVo;
 
-@Service
 public class ChangePasswordService {
 	@Autowired
 	private MemberDao memberDao;

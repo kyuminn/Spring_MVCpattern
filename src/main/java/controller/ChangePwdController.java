@@ -15,7 +15,7 @@ import member.service.ChangePasswordService;
 import member.vo.AuthInfo;
 import validator.ChangePwdCommandValidator;
 
-@Controller
+
 @RequestMapping("/edit/changePassword")
 public class ChangePwdController {
 	
