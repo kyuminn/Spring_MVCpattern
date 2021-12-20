@@ -4,8 +4,10 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans 
 	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
 	
 <!-- 이 객체는 다른곳에서 참조할 일이 없기대문에 id 부분은 삭제해도 된다! -->
+<!--  
 <bean class="controller.HelloController"/>
 <bean class="controller.RegisterController"/>
 <bean class="survey.SurveyController"/>
@@ -14,5 +16,5 @@
 <bean class="controller.ChangePwdController"/>
 <bean class="controller.ListController"/>
 <bean class="controller.MemberDetailController"/>
-<bean class="controller.CommonExceptionController"/>
+<bean class="controller.CommonExceptionController"/> -->
 </beans>

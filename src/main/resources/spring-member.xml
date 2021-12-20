@@ -28,6 +28,7 @@
 		<property name="idleConnectionTestPeriod" value="300"/>
 	</bean>
 
+	<!--  
 	<bean id="memberDao" class="member.dao.MemberDao">
 		<constructor-arg ref="dataSource"/>
 	</bean>
@@ -39,4 +40,5 @@
 	</bean>
 	
 	<bean id="authService" class="member.service.AuthService"/>
+	-->
 </beans>
