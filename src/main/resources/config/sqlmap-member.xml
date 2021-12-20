@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 	<!-- result Type은  mybatis-config에서 정의한 alias 이름 -->
+	<!-- id = 특정 쿼리문을 식별하기 위한 값 -->
   <mapper namespace="memberDao">
   	<select id="list" resultType="vo">
   		select * from member order by id
@@ -17,6 +18,7 @@
   		</selectKey>
   	</insert>
   	<update id="update" parameterType="vo">
+  	<!-- 알아서 vo의 getter method가 동작 -->
   		update member set name=#{name},password=#{password} where email=#{email}
   	</update>
   	<delete id="delete" parameterType="vo">
