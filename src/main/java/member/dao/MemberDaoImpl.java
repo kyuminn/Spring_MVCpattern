@@ -42,7 +42,7 @@ public class MemberDaoImpl implements MemberDao {
 	
 	// 날짜를 이용한 전체 멤버 반환
 	// MyBatis를 이용할 때 파라미터는 하나만 보낼 수 있음
-	//만약 여러개의 파라미터를 전달하고 싶으면 Map 객체 이용
+	//만약 여러개의 파라미터를 전달하고 싶으면 Map 객체 이용 or 값을 담은 Command 객체 이용하기
 	public List<MemberVo> selectByRegdate(Date from, Date to){
 		HashMap<String,Date> map = new HashMap<String,Date>();
 		map.put("from", from);
